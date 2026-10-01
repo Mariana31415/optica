@@ -1,0 +1,81 @@
+# =====================================================================
+#  datos.txt  -  Caracterización de oscilador, amplificador y AOM
+# =====================================================================
+#  - Todo lo que va después de un # es un comentario.
+#  - Usa PUNTO decimal (6.24, no 6,24). Separa columnas con espacios o tabs.
+#  - Para cambiar un dato o agregar mediciones, edita las filas y vuelve
+#    a correr:  python graficar.py
+# =====================================================================
+
+[parametros]
+Pin_mW      = 21.7    # potencia de luz que ENTRA al AOM (mW)
+ganancia_dB = 31.3    # ganancia del amplificador usada para estimar la RF en el AOM
+Z_ideal_ohm = 50      # impedancia nominal del sistema (ohm)
+
+# ---------------------------------------------------------------------
+[oscilador]
+# Oscilador solo.
+# P_dBm  = potencia configurada en el oscilador (dBm)
+# V_mV   = voltaje medido a la salida (V_RMS, en mV)
+# sd_uV  = desviación estándar de las lecturas (microvoltios)
+# P_dBm   V_mV    sd_uV
+-30      6.24     15
+-28      7.86     15.5
+-26      10.1     18.4
+-24      12.6     25.2
+-22      15.8     29.8
+-20      20       30.6
+-18      25.2     30.5
+-16      31.3     59
+-14      39.5     54
+-12      49.9     51
+-10      61.5     106
+-8       77.4     161
+-6       97.5     119
+-4       123      160
+-2       161      300
+0        202      270
+2        255      300
+4        319      600
+6        401      616
+
+# ---------------------------------------------------------------------
+[amplificador]
+# Oscilador + amplificador (mismas columnas que arriba).
+# OJO: sd_uV pasa de ~1-2 a ~500-800 entre -42 y -40 dBm. Verificar si
+#      hubo cambio de rango del instrumento o de unidades.
+# P_dBm   V_mV    sd_uV
+-50      26.9     2.55
+-48      32.6     2.04
+-46      40.1     2.2
+-44      49.8     1.39
+-42      60.2     1.18
+-40      76.8     670
+-38      95.3     810
+-36      127      580
+-34      159      536
+-32      200      445
+-30      252      446
+
+# ---------------------------------------------------------------------
+[aom]
+# Prf_dBm = potencia configurada en el oscilador (ANTES del amplificador)
+# P_mW    = potencia de luz medida en el haz difractado (mW)
+# Prf_dBm   P_mW
+-30         0.08
+-28         0.09
+-26         0.10
+-24         0.13
+-22         0.16
+-20         0.22
+-18         0.30
+-16         0.44
+-14         0.66
+-12         1.00
+-10         1.51
+-8          2.26
+-6          3.35
+-4          4.85
+-2          6.68
+0           8.51
+2           9.82
